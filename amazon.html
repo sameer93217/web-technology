@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Style Shopping Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e3e6e6;
+            color: #111;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background-color: #131921;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Logo */
+        .logo {
+            position: relative;
+            display: inline-block;
+            color: white;
+            font-size: 29px;
+            font-weight: bold;
+            text-decoration: none;
+            padding-bottom: 9px;
+        }
+
+        .logo span {
+            color: #ff9900;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            width: 58px;
+            height: 12px;
+            left: 24px;
+            bottom: 1px;
+            border-bottom: 4px solid #ff9900;
+            border-radius: 0 0 55% 55%;
+            transform: rotate(-5deg);
+        }
+
+        .delivery {
+            font-size: 12px;
+        }
+
+        .delivery strong {
+            display: block;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Search bar */
+        .search {
+            display: flex;
+            flex: 1;
+            min-width: 200px;
+            max-width: 650px;
+        }
+
+        .search input {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border: none;
+            font-size: 15px;
+        }
+
+        .search button {
+            background-color: #febd69;
+            border: none;
+            padding: 0 18px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav-item {
+            font-size: 12px;
+        }
+
+        .nav-item strong {
+            display: block;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .cart {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Categories */
+        .categories {
+            background-color: #232f3e;
+            color: white;
+            display: flex;
+            gap: 25px;
+            padding: 13px 20px;
+            overflow-x: auto;
+        }
+
+        .categories a {
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .categories a:hover {
+            color: #febd69;
+        }
+
+        /* Hero banner */
+        .hero {
+            background: linear-gradient(120deg, #dbeafe, #fff0d6);
+            min-height: 230px;
+            padding: 45px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            margin: 0 0 12px;
+            color: #131921;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #374151;
+        }
+
+        .hero a {
+            display: inline-block;
+            background-color: #ff9900;
+            color: #111;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Product section */
+        .products {
+            padding: 20px;
+        }
+
+        .products h2 {
+            margin-top: 5px;
+            font-size: 25px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 18px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 17px;
+            min-height: 40px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #b12704;
+        }
+
+        .product-card button {
+            background-color: #ffd814;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .product-card button:hover {
+            background-color: #f7ca00;
+        }
+
+        /* Footer */
+        .back-top {
+            display: block;
+            text-align: center;
+            background-color: #37475a;
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #131921;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 850px) {
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar {
+                padding: 12px;
+            }
+
+            .search {
+                order: 5;
+                flex-basis: 100%;
+                max-width: none;
+            }
+
+            .delivery {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            amazon<span>.</span>
+        </a>
+
+        <div class="delivery">
+            Deliver to
+            <strong>India</strong>
+        </div>
+
+        <form class="search" action="#">
+            <input type="search"
+                   placeholder="Search products..."
+                   aria-label="Search products">
+            <button type="submit" aria-label="Search">&#128269;</button>
+        </form>
+
+        <div class="nav-item">
+            Hello, sign in
+            <strong>Account &amp; Lists</strong>
+        </div>
+
+        <div class="nav-item">
+            Returns
+            <strong>&amp; Orders</strong>
+        </div>
+
+        <div class="cart">
+            &#128722; Cart
+        </div>
+
+    </header>
+
+    <!-- Categories -->
+    <nav class="categories">
+        <a href="#products">All Products</a>
+        <a href="#electronics">Electronics</a>
+        <a href="#fashion">Fashion</a>
+        <a href="#home">Home &amp; Kitchen</a>
+        <a href="#books">Books</a>
+        <a href="#offers">Today's Deals</a>
+    </nav>
+
+    <!-- Hero banner -->
+    <section class="hero" id="offers">
+        <h1>Welcome to Online Shopping</h1>
+        <p>Discover great products for your everyday needs.</p>
+        <a href="#products">Explore Products</a>
+    </section>
+
+    <!-- Products -->
+    <main class="products" id="products">
+
+        <h2>Popular Products</h2>
+
+        <div class="product-grid">
+
+            <article class="product-card" id="electronics">
+                <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+                    alt="Wireless headphones">
+
+                <h3>Wireless Headphones</h3>
+                <p>Enjoy your favourite music.</p>
+                <p class="price">&#8377;1,499</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+                    alt="Modern wristwatch">
+
+                <h3>Classic Wristwatch</h3>
+                <p>A stylish everyday accessory.</p>
+                <p class="price">&#8377;999</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card" id="fashion">
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+                    alt="Casual T-shirt">
+
+                <h3>Casual T-Shirt</h3>
+                <p>Comfortable everyday fashion.</p>
+                <p class="price">&#8377;499</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card" id="home">
+                <img
+                    src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=500"
+                    alt="Home decoration">
+
+                <h3>Home Accessories</h3>
+                <p>Give your home a fresh look.</p>
+                <p class="price">&#8377;799</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card" id="books">
+                <img
+                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500"
+                    alt="Books">
+
+                <h3>Books Collection</h3>
+                <p>Discover your next favourite read.</p>
+                <p class="price">&#8377;299</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
+                    alt="Sports shoes">
+
+                <h3>Sports Shoes</h3>
+                <p>Comfort for everyday activities.</p>
+                <p class="price">&#8377;1,299</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500"
+                    alt="Digital camera">
+
+                <h3>Digital Camera</h3>
+                <p>Capture your special moments.</p>
+                <p class="price">&#8377;4,999</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500"
+                    alt="Smartwatch">
+
+                <h3>Smart Watch</h3>
+                <p>Technology for your daily routine.</p>
+                <p class="price">&#8377;1,999</p>
+                <button type="button">Add to Cart</button>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <a class="back-top" href="#">Back to Top</a>
+
+    <footer>
+        <a href="#" class="logo">amazon<span>.</span></a>
+        <p>Online Shopping Made Simple</p>
+        <p>&copy; 2026 My Shopping Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
