@@ -1,74 +1,250 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Login Page</title>
+<title>Amazon Shopping</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e3e6e6;
+}
+
+/* Header */
+header {
+    background: #131921;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: orange;
+}
+
+.search {
+    display: flex;
+    flex: 1;
+}
+
+.search input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+}
+
+.search button {
+    padding: 12px 20px;
+    background: orange;
+    border: none;
+}
+
+.header-text {
+    font-size: 14px;
+}
+
+/* Navigation */
+nav {
+    background: #232f3e;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+/* Banner */
+.banner {
+    background: #f5d5b5;
+    text-align: center;
+    padding: 45px 15px;
+    color: #222;
+}
+
+.banner h1 {
+    font-size: 35px;
+}
+
+/* Product section */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 25px;
+}
+
+.box {
+    background: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.box img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.box h2 {
+    margin-bottom: 15px;
+}
+
+.box p {
+    margin: 10px;
+}
+
+.box button {
+    background: #ffd814;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #131921;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media(max-width: 700px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <center>
-        <h1>Welcome Back</h1>
-        <p>Please login to your account</p>
+<!-- Header -->
+<header>
+    <div class="logo">amazon<span>.in</span></div>
 
-        <hr width="350">
+    <div class="search">
+        <input type="text" placeholder="Search Amazon">
+        <button>Search</button>
+    </div>
 
-        <form action="#" method="post">
-            <table cellpadding="8">
-                <tr>
-                    <td><label for="username">Username:</label></td>
-                    <td>
-                        <input type="text" id="username"
-                               name="username"
-                               placeholder="Enter username" required>
-                    </td>
-                </tr>
+    <div class="header-text">Hello, Sign in<br>
+        Account & Lists
+    </div>
 
-                <tr>
-                    <td><label for="email">Email:</label></td>
-                    <td>
-                        <input type="email" id="email"
-                               name="email"
-                               placeholder="Enter email" required>
-                    </td>
-                </tr>
+    <div class="header-text">Returns<br>& Orders</div>
 
-                <tr>
-                    <td><label for="password">Password:</label></td>
-                    <td>
-                        <input type="password" id="password"
-                               name="password"
-                               placeholder="Enter password" required>
-                    </td>
-                </tr>
+    <div class="header-text">🛒 Cart</div>
+</header>
 
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="checkbox" id="remember"
-                               name="remember">
-                        <label for="remember">Remember me</label>
-                    </td>
-                </tr>
+<!-- Navigation -->
+<nav>
+    <a href="#">☰ All</a>
+    <a href="#">Fresh</a>
+    <a href="#">Mobiles</a>
+    <a href="#">Fashion</a>
+    <a href="#">Electronics</a>
+    <a href="#">Home & Kitchen</a>
+    <a href="#">Books</a>
+</nav>
 
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="Login">
-                        <input type="reset" value="Clear">
-                    </td>
-                </tr>
-            </table>
-        </form>
+<!-- Banner -->
+<div class="banner">
+    <h1>Welcome to Amazon</h1>
+    <p>Shop Everything You Need!</p>
+</div>
 
-        <p><a href="#">Forgot Password?</a></p>
-        <p>Don't have an account? <a href="#">Sign Up</a></p>
+<!-- Products -->
+<div class="container">
 
-        <hr width="350">
+    <div class="box">
+        <h2>Mobiles</h2>
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400">
+        <p>Latest Smartphones</p>
+        <button>Shop Now</button>
+    </div>
 
-        <footer>
-            <p>&copy; 2026 My Website. All rights reserved.</p>
-        </footer>
-    </center>
+    <div class="box">
+        <h2>Laptops</h2>
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400">
+        <p>Best Laptops</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Headphones</h2>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400">
+        <p>Wireless Headphones</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Watches</h2>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+        <p>Stylish Watches</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Fashion</h2>
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400">
+        <p>Latest Fashion</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Shoes</h2>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+        <p>Sports Shoes</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Books</h2>
+        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400">
+        <p>Read New Books</p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="box">
+        <h2>Home Decor</h2>
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400">
+        <p>Beautiful Home Items</p>
+        <button>Shop Now</button>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <h2>Amazon Shopping</h2>
+    <p>Back to Top</p>
+    <p>© 2026 Amazon Style Home Page</p>
+</footer>
 
 </body>
 </html>
